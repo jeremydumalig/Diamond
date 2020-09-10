@@ -4,8 +4,8 @@ library(grid)
 library(gridExtra)
 rm(list=ls())
 
-raw_wnba <- read_csv(file="https://raw.githubusercontent.com/jeremydumalig/DataBank/master/wnba_2019.csv")
-raw_nba <- read_csv(file="https://raw.githubusercontent.com/jeremydumalig/DataBank/master/nba_2019.csv")
+raw_wnba <- read_csv(file="https://raw.githubusercontent.com/jeremydumalig/Diamond/master/wnba_2019.csv")
+raw_nba <- read_csv(file="https://raw.githubusercontent.com/jeremydumalig/Diamond/master/nba_2019.csv")
 
 hundred <- function(x){return(round(percent_rank(x)*100))}
 
