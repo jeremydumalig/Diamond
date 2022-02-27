@@ -29,6 +29,7 @@ comp_factors = c(
   'BLK'
 )
 
+#filter and standardize stats
 wnba_comp <- 
   raw_wnba %>%
   select(comp_factors) %>%
@@ -52,6 +53,7 @@ nba_perc[is.na(nba_perc)] <- 0
 wnba_comp[is.na(wnba_comp)] <- 0
 nba_comp[is.na(nba_comp)] <- 0
 
+#create ggplot theme
 gg_theme <-
   theme_linedraw() +
   theme(
@@ -61,6 +63,7 @@ gg_theme <-
     axis.title.y = element_text(size=15)
   )
 
+#plots a single percentile graph for given player
 spacejam <- function(league_argument, player_argument){
   if (league_argument == 'NBA'){
     player_percentiles <- nba_perc
@@ -89,6 +92,7 @@ spacejam <- function(league_argument, player_argument){
     gg_theme
 }
 
+#runs spacejam function, outputs comparable players
 diamond <- function(league, player_name){
   if (league == 'NBA'){
     nba_tbl <- filter(nba_comp, Player == player_name)
@@ -104,6 +108,7 @@ diamond <- function(league, player_name){
     DIAMOND=numeric()
   )
   
+  #calculates DIAMOND ratings, stores in comparisons dataframe
   for (col_index in seq(1, nrow(row_indexer), length=nrow(row_indexer)) ) {
     if (league == 'NBA'){
       wnba_tbl <- filter(row_indexer, row_number() == col_index)
@@ -130,11 +135,13 @@ diamond <- function(league, player_name){
     )
   }
   
+  #outputs table of comparable players, arranged by DIAMOND rating
   comparisons <- arrange(comparisons, DIAMOND)
   View(comparisons)
 
   diamond_text <- paste0("DIAMOND Rating: ", comparisons[[3]][1])
   
+  #plots two percentile comparison graphs side-by-side
   p1 <- spacejam(league, player_name)
   if (league == 'NBA'){
     p2 <- spacejam('WNBA', comparisons[[1]][1])
