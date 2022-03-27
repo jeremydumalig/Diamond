@@ -6,7 +6,7 @@ DIAMOND.R
 * R script that cleans up data, creates DIAMOND model, visualizes comparisons
 
 nba_2019.csv
-* Traditional box score statistics from the 2018-19 NBA season
+* Traditional box score per-game statistics from the 2018-19 NBA season
 
 wnba_2019.csv
-* Traditional box score statistics from the first half of the 2018-19 WNBA season (leading up to All-Star Break)
+* Traditional box score per-game statistics from the first half of the 2018-19 WNBA season (leading up to All-Star Break)
