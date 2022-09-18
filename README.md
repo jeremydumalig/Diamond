@@ -6,7 +6,7 @@
 
 <br>
 
-DIAMOND.R
+**DIAMOND.R**
 * R script that cleans up data, creates DIAMOND model, visualizes comparisons
 
 nba_2019.csv
